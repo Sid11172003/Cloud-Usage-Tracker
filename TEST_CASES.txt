@@ -1,0 +1,138 @@
+Test Cases – Cloud Usage & Cost Tracker
+Test Case 1: EC2 Monthly Cost Calculation
+
+Input:
+
+Instance ID: i-07a64f2c96807de51
+
+Hours Used = 10
+
+Cost per Hour = 0.0116
+
+Expected Output:
+Monthly Cost = 10 × 0.0116 = 0.116
+
+Result: Pass
+
+Test Case 2: EC2 Monthly Cost Calculation (Non-zero Usage)
+
+Input:
+
+Instance ID: i-082a231ba9c5e023b
+
+Hours Used = 5
+
+Cost per Hour = 0.0116
+
+Expected Output:
+Monthly Cost = 5 × 0.0116 = 0.058
+
+Result: Pass
+
+Test Case 3: Idle EC2 Detection
+
+Input:
+
+Instance ID: i-07277fc88a1976d2d
+
+Hours Used = 0
+
+Expected Output:
+Status = Idle
+Monthly Cost = 0
+
+Result: Pass
+
+Test Case 4: Multiple Idle EC2 Instances
+
+Input:
+
+Instance ID: i-0d2b7e57e2ea62b28
+
+Hours Used = 0
+
+Expected Output:
+Status = Idle
+
+Result: Pass
+
+Test Case 5: S3 Monthly Cost Calculation
+
+Input:
+
+Bucket Name: cloud-cost-tracker-demo
+
+Storage Used = 3.8 GB
+
+Cost per GB = 0.023
+
+Expected Output:
+Monthly Cost = 3.8 × 0.023 = 0.0874
+
+Result: Pass
+
+Test Case 6: S3 Monthly Cost Calculation (Another Bucket)
+
+Input:
+
+Bucket Name: demo1doc
+
+Storage Used = 4.5 GB
+
+Expected Output:
+Monthly Cost = 4.5 × 0.023 = 0.1035
+
+Result: Pass
+
+Test Case 7: Unused S3 Bucket Detection
+
+Input:
+
+Bucket Name: temp-files
+
+Storage Used = 0 GB
+
+Expected Output:
+Status = Unused
+Monthly Cost = 0
+
+Result: Pass
+
+Test Case 8: Active S3 Bucket Detection
+
+Input:
+
+Bucket Name: reports
+
+Storage Used = 1.5 GB
+
+Expected Output:
+Status = Active
+
+Result: Pass
+
+Test Case 9: EC2 Total Monthly Cost (Summary Sheet)
+
+Input:
+Sum of EC2 Monthly Cost column
+
+Expected Output:
+Total EC2 Cost is calculated using:
+=SUM(EC2_Usage!E2:E11)
+
+Result: Pass
+
+Test Case 10: Overall Cloud Cost Calculation
+
+Input:
+
+EC2 Total Cost
+
+S3 Total Cost
+
+Expected Output:
+Total Cloud Cost = EC2 Cost + S3 Cost
+Calculated using formula:
+=SUM(B2:B3)
+
+Result: Pass
